@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar color='navbarColor2'>
+        <ion-title>
+            List
+            <span *ngIf="responseData.data && responseData.data.length > 0">({{responseData.data.length}})</span>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-list>
+        <ion-item *ngFor="let post of responseData.data">
+            <h2>{{post.signum}}</h2>
+            <p>{{post.name}}</p>
+        </ion-item>
+    </ion-list>
+</ion-content>
